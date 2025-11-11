@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { AppLocale, AppTheme } from '@/components/Application';
+  import { AppTheme } from '@/components/Application';
   import Form from './compoontne/form.vue';
 </script>
 
@@ -8,7 +8,6 @@
     <div class="container mx-auto">
       <div class="head">
         <div class="application">
-          <AppLocale class="item icon-size enter-x" />
           <AppTheme class="item enter-x" />
         </div>
       </div>

@@ -3,7 +3,6 @@
   import { reactive, ref, useTemplateRef } from 'vue';
   import { useRouter } from 'vue-router';
   import type { FormInstance, FormRules } from 'element-plus';
-  import { useI18n } from '@/hooks/web/useI18n';
   import { initRoute } from '@/router/utils';
   import { getUserInfo } from '@/server/useInfo';
   import { useUserInfoStoreHook } from '@/store/modules/user';
@@ -16,11 +15,9 @@
   });
   const checked = ref<boolean>(false);
 
-  const { t } = useI18n();
-
   const rules = reactive<FormRules<typeof ruleForm>>({
-    username: [{ required: true, trigger: 'blur', message: t('sys.login.rules.userName') }],
-    password: [{ required: true, trigger: 'blur', message: t('sys.login.rules.password') }],
+    username: [{ required: true, trigger: 'blur', message: '请输入您的用户名' }],
+    password: [{ required: true, trigger: 'blur', message: '请输入您的密码' }],
   });
 
   const router = useRouter();
@@ -48,12 +45,7 @@
 <template>
   <el-form ref="rule-form-ref" :model="ruleForm" :rules="rules" size="large" class="demo-ruleForm">
     <el-form-item prop="username" class="enter-y">
-      <el-input
-        v-model="ruleForm.username"
-        :prefix-icon="Avatar"
-        clearable
-        :placeholder="`${$t('sys.login.userName')}：admin`"
-      />
+      <el-input v-model="ruleForm.username" :prefix-icon="Avatar" clearable placeholder="用户名：admin" />
     </el-form-item>
     <el-form-item prop="password" class="enter-y">
       <el-input
@@ -62,23 +54,19 @@
         :prefix-icon="Lock"
         clearable
         show-password
-        :placeholder="`${$t('sys.login.password')}：admin123`"
+        placeholder="密码：admin123"
       />
     </el-form-item>
 
     <el-form-item class="enter-y">
       <div class="form-item-container">
-        <el-checkbox v-model="checked" :label="$t('sys.login.rememberPassword')" />
-        <el-button link type="primary">
-          {{ $t('sys.login.forgotPassword') }}
-        </el-button>
+        <el-checkbox v-model="checked" label="记住密码" />
+        <el-button link type="primary"> 忘记密码？ </el-button>
       </div>
     </el-form-item>
 
     <el-form-item class="enter-y">
-      <el-button class="submit-btn" @click="submitForm(ruleFormRef)">
-        {{ $t('sys.login.loginButton') }}
-      </el-button>
+      <el-button class="submit-btn" @click="submitForm(ruleFormRef)"> 登录 </el-button>
     </el-form-item>
   </el-form>
 </template>

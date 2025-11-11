@@ -1,4 +1,3 @@
-import { t } from '@/hooks/web/useI18n';
 import type { AppRouteRecordRaw } from '@/router/type';
 
 const echarts: AppRouteRecordRaw[] = [
@@ -6,19 +5,19 @@ const echarts: AppRouteRecordRaw[] = [
     path: '/echarts',
     redirect: '/echarts/bar',
     name: 'RtEcharts',
-    meta: { title: t('route.pathName.echarts'), icon: 'echarts', position: 3 },
+    meta: { title: '图表', icon: 'echarts', position: 3 },
     children: [
       {
         path: 'bar',
         name: 'RtBar',
         component: () => import('@/views/echarts/bar/index.vue'),
-        meta: { title: t('route.pathName.echarts_bar') },
+        meta: { title: '柱状图' },
       },
       {
         path: 'map',
         name: 'RtMap',
         component: () => import('@/views/echarts/map/index.vue'),
-        meta: { title: t('route.pathName.echarts_map') },
+        meta: { title: '地图' },
       },
     ],
   },

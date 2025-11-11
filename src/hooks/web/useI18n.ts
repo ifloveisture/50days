@@ -30,7 +30,8 @@ export function translateI18n(message: any = '') {
     return message[locale];
   }
   const key = message.split('.')[0];
-  if (key && Object.keys(i18n.global.messages.value[locale]).includes(key)) {
+  const localeMessages = i18n.global.messages.value[locale];
+  if (key && localeMessages && Object.keys(localeMessages).includes(key)) {
     return i18n.global.t(message);
   }
   return message;

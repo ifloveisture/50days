@@ -1,7 +1,7 @@
 <script setup lang="ts">
   // import { ref } from 'vue'
   import { ref } from 'vue';
-  import { AppAccount, AppLocale, AppTheme } from '@/components/Application';
+  import { AppAccount, AppTheme } from '@/components/Application';
   import SvgIcon from '@/components/SvgIcon/index.vue';
   import { useRootSetting } from '@/hooks/setting/useRootSetting';
   import Breadcrumb from '../../components/Breadcrumb/index.vue';
@@ -42,10 +42,9 @@
         </template>
       </div>
       <div class="navbar-right">
-        <el-tooltip :content="$t('layout.navbar.fullScreen')" placement="bottom">
+        <el-tooltip content="全屏" placement="bottom">
           <SvgIcon class="cursor" :name="full_screen" @click="fullScreenChange" />
         </el-tooltip>
-        <AppLocale class="icon" />
         <AppTheme />
         <AppAccount />
         <SvgIcon class="cursor" name="iEL-setting" @click="drawer = true" />

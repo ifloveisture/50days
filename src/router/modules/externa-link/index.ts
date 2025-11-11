@@ -1,4 +1,3 @@
-import { t } from '@/hooks/web/useI18n';
 import type { AppRouteRecordRaw } from '@/router/type';
 
 const externalLink: AppRouteRecordRaw[] = [
@@ -7,7 +6,7 @@ const externalLink: AppRouteRecordRaw[] = [
     // component: Layout,
     name: 'RtExternal',
     meta: {
-      title: t('route.pathName.externalLink'),
+      title: '外链',
       icon: 'link',
       alwaysShow: true,
       position: 9,
@@ -16,14 +15,14 @@ const externalLink: AppRouteRecordRaw[] = [
       {
         path: 'https://jsxiaosi.github.io/vue-xs-admin-docs/',
         name: 'RtGitLink',
-        meta: { title: t('route.pathName.externalDocument') },
+        meta: { title: '外链文档' },
       },
       {
         path: 'embedded-page',
         component: () => import('@/views/external-link/embedded-page/index.vue'),
         name: 'RtGitLink',
         meta: {
-          title: t('route.pathName.embeddedDocument'),
+          title: '内嵌文档',
           externalUrl: 'https://jsxiaosi.github.io/vue-xs-admin-docs/',
         },
       },
