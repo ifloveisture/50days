@@ -14,6 +14,7 @@ export function configRouteList() {
     const mod = modules[key].default;
     if (!mod) return;
     const modList = Array.isArray(mod) ? [...mod] : [mod];
+
     if (pathNamekeyCheck(key, whiteCatalogue)) {
       whiteRouteModulesList.push(...modList);
     } else {
@@ -29,5 +30,6 @@ export function configRouteList() {
    */
   const whIndex = whiteRouteModulesList.findIndex(i => i.path === '/');
   if (whiteRouteModulesList[whIndex]) whiteRouteModulesList[whIndex].children = routeModulesList;
+
   return { whiteRouteModulesList, routeModulesList };
 }
