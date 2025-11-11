@@ -36,6 +36,13 @@
   },
 
   "references": [{ "path": "./tsconfig.node.json" }],
-  "include": ["src", "types", "tests"],
+  "include": [
+    "src",
+    "types",
+    "tests",
+    "types/auto-imports.d.ts",
+    "types/components.d.ts",
+    ".eslintrc-auto-import.json"
+  ],
   "exclude": ["node_modules", "dist", "**/*.js", "discard/"]
 }

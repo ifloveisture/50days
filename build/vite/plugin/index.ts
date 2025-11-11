@@ -10,6 +10,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 // 检查插件状态
 import Inspect from 'vite-plugin-inspect';
 import type { ConfigEnv, PluginOption } from 'vite';
+// 自动导入
+import { configAutoImportPlugin } from './autoImport';
 // 自定义插件 问候语，打包检测用时、大小
 import viteBuildOuteInfo from './buildOuteInfo';
 // 压缩
@@ -26,6 +28,7 @@ import { configMockPlugin } from './mock';
 import { configPwaPlugin } from './pwa';
 // 按需加载样式配置
 import { configStylePlugin } from './style';
+
 // svg配置
 import { configSvgPlugin } from './svg';
 
@@ -41,6 +44,9 @@ export function createVitePlugins(_isBuild = false, configEnv: ConfigEnv) {
     //   reactivityTransform: true,
     // }),
   ];
+
+  // 自动导入插件需要在 vue 插件之前
+  vitePlugins.push(...configAutoImportPlugin());
 
   vitePlugins.push(
     vue(),

@@ -9,4 +9,9 @@ dist
 dist_electron
 node_modules
 
+# 自动导入生成的文件
+types/auto-imports.d.ts
+types/components.d.ts
+.eslintrc-auto-import.json
+
 .qoder

@@ -1,4 +1,5 @@
 import jsxiaosiConfig from '@jsxiaosi/eslint-config';
+import autoImportGlobals from './.eslintrc-auto-import.json' assert { type: 'json' };
 
 export default jsxiaosiConfig(
   {
@@ -9,6 +10,11 @@ export default jsxiaosiConfig(
     ignores: ['src/**/china.json'],
   },
   {
+    languageOptions: {
+      globals: {
+        ...autoImportGlobals.globals,
+      },
+    },
     rules: {
       'no-console': 'off',
     },
