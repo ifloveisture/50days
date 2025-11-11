@@ -4,6 +4,7 @@
 
 **/*.svg
 **/*.sh
+*.json
 
 dist
 public
